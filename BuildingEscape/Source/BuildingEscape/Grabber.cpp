@@ -26,6 +26,9 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
+	//DrawDebugLine(GetWorld(), ReturnTraceLineStart(), ReturnTraceLineEnd(), FColor::Red, false, 0.0, 0, 5.0);
+
+
 	if (!PhysicsHandle) {
 		return;
 	}
@@ -63,6 +66,8 @@ void UGrabber::AttachPhysicsHandle() {
 
 
 void UGrabber::Grab() {
+
+	UE_LOG(LogTemp, Warning, TEXT("grab function called"))
 
 	// reference to Hit object
 	FHitResult HitResult = ReturnFirstTracePhysicsObject();
