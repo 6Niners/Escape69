@@ -10,6 +10,7 @@
 #include "DrawDebugHelpers.h"
 #include "Components/InputComponent.h"
 #include "PhysicsEngine/PhysicsHandleComponent.h"
+#include "Engine/Engine.h"
 #include "Grabber.generated.h"
 
 
