@@ -27,7 +27,7 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	DrawDebugLine(GetWorld(), ReturnTraceLineStart(), ReturnTraceLineEnd(), FColor::Red, false, 0.0, 0, 5.0);
+	//DrawDebugLine(GetWorld(), ReturnTraceLineStart(), ReturnTraceLineEnd(), FColor::Red, false, 0.0, 0, 5.0);
 
 
 	if (!PhysicsHandle) {
@@ -68,7 +68,7 @@ void UGrabber::AttachPhysicsHandle() {
 
 void UGrabber::Grab() {
 
-	GEngine->AddOnScreenDebugMessage(0, 2.0, FColor::Red, TEXT("grab called"));
+	//GEngine->AddOnScreenDebugMessage(0, 2.0, FColor::Red, TEXT("grab called"));
 
 	// reference to Hit object
 	FHitResult HitResult = ReturnFirstTracePhysicsObject();
