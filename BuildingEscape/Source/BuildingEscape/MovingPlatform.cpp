@@ -43,6 +43,7 @@ void AMovingPlatform::Tick(float DeltaTime)
 
 		FVector Direction = (GlobalTLocation - GlobalStartLocation).GetSafeNormal();
 		Location += Speed * DeltaTime * Direction;
+
 		if (Triggered)
 		{
 			SetActorLocation(Location);
