@@ -37,23 +37,36 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
+	
+	
 
 
 private:
 	
 	UPROPERTY(EditAnywhere)
-	float Reach = 150;
+	float Reach = 200;
 
 	UInputComponent* InputComponent = nullptr;
 	UPhysicsHandleComponent* PhysicsHandle = nullptr;
 
+	UFUNCTION(BlueprintCallable)
+	void UpdatePhysicsObjectLocation();
+
+	UFUNCTION(BlueprintCallable)
 	void Grab();
+
+	UFUNCTION(BlueprintCallable)
 	void Release();
+
 	void AttachInputComponent();
 	void AttachPhysicsHandle();
 
+	UFUNCTION(BlueprintCallable)
 	FVector ReturnTraceLineStart();
+
+	UFUNCTION(BlueprintCallable)
 	FVector ReturnTraceLineEnd();
+
+	UFUNCTION(BlueprintCallable)
 	FHitResult ReturnFirstTracePhysicsObject();
 };
