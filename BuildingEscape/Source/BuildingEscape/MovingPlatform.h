@@ -18,6 +18,8 @@ public:
 	AMovingPlatform();
 	virtual void Tick(float DeltaTime) override;
 	UPROPERTY(EditAnywhere) float Speed = 20;
+	UPROPERTY(EditAnywhere) bool loop = 0;
+	UPROPERTY(BlueprintReadWrite, Category="Switch Variables") bool Triggered = 0;
 	UPROPERTY(EditAnywhere, Meta = (MakeEditWidget = true)) FVector TLocation;
 	FVector GlobalStartLocation;
 	FVector GlobalTLocation;
