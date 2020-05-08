@@ -25,7 +25,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	UPROPERTY(BlueprintReadWrite, Category = "Switch Variables", EditAnywhere) bool Triggered = 0;
 
 private:
 
