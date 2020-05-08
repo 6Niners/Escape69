@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Components/BoxComponent.h"
 #include "Engine/Engine.h" 
+#include "MovingPlatform.h"
 #include "PressurePlate.generated.h"
 
 UCLASS()
@@ -30,6 +31,8 @@ private:
 
 	UFUNCTION() void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 	UFUNCTION() void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+	UPROPERTY(EditAnywhere) TArray<AMovingPlatform*> platformsArray;
 
 	UBoxComponent* triggerBox = nullptr;
 	FVector actorLocation;
