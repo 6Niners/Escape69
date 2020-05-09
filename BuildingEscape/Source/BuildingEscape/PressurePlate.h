@@ -17,6 +17,8 @@ class BUILDINGESCAPE_API APressurePlate : public AActor
 public:	
 	// Sets default values for this actor's properties
 	APressurePlate();
+	UPROPERTY(BlueprintReadWrite, Category = "Switch Variables", EditAnywhere) bool Triggered = 0;
+
 
 protected:
 	// Called when the game starts or when spawned
