@@ -47,26 +47,35 @@ void APressurePlate::Tick(float DeltaTime)
 
 void APressurePlate::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) {
 
+	if (stopMovement < 1) {
+
+		actorLocation = GetActorLocation();
+		actorLocation += FVector(0, 0, -5);
+		SetActorLocation(actorLocation);
+		stopMovement++;
+	}
+
 	for (AMovingPlatform* platform : platformsArray) {
 
 		platform->incrementPlatformsToTrigger();
 	}
 
-	//actorLocation = GetActorLocation();
-	//actorLocation += FVector(0, 0 , -10);
-	//SetActorLocation(actorLocation);
+	
 }
 
 
 
 void APressurePlate::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex) {
 
+	if (shouldRebound) {
+
+		actorLocation = GetActorLocation();
+		actorLocation += FVector(0, 0, 5);
+		SetActorLocation(actorLocation);
+	}
+
 	for (AMovingPlatform* platform : platformsArray) {
 
 		platform->decrementPlatformsToTrigger();
 	}
-
-	//actorLocation = GetActorLocation();
-	//actorLocation += FVector(0, 0, 10);
-	//SetActorLocation(actorLocation);
 }
