@@ -6,17 +6,16 @@
 #include "GameFramework/Actor.h"
 #include "Components/BoxComponent.h"
 #include "Engine/Engine.h" 
-#include "MovingPlatform.h"
-#include "PressurePlate.generated.h"
+#include "RespawnTrigger.generated.h"
 
 UCLASS()
-class BUILDINGESCAPE_API APressurePlate : public AActor
+class BUILDINGESCAPE_API ARespawnTrigger : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	APressurePlate();
+	ARespawnTrigger();
 
 protected:
 	// Called when the game starts or when spawned
@@ -26,18 +25,13 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION() void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+	UFUNCTION() void OnOverlapEnd();
 
 private:
 
-	UFUNCTION() void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-	UFUNCTION() void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+	UPROPERTY(EditAnywhere) FVector respawnLocation = FVector(0,0,0);
 
-	UPROPERTY(EditAnywhere) TArray<AMovingPlatform*> platformsArray;
-
-	UBoxComponent* triggerBox = nullptr;
-	FVector actorLocation;
-
-	UPROPERTY(EditAnywhere) bool shouldRebound = true;
-
-	int stopMovement = 0;
+	UBoxComponent* respawnTrigger = nullptr;
+	
 };
