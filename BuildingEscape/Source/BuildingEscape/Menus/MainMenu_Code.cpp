@@ -1,5 +1,5 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+// Private Closed Project, sharing or editing the source code is prohibited 
+//and will be faced with legal action, claiming the project is yours will end you up in jail.
 
 #include "MainMenu_Code.h"
 
@@ -12,6 +12,7 @@ bool UMainMenu_Code::Initialize() {
 	JoinBtn->OnClicked.AddDynamic(this, &UMainMenu_Code::LoadJoinMenu);
 	CancelBtn->OnClicked.AddDynamic(this, &UMainMenu_Code::RemoveJoinMenu);
 	JoinIPBtn->OnClicked.AddDynamic(this, &UMainMenu_Code::JoinServer);
+	TutorialBtn->OnClicked.AddDynamic(this, &UMainMenu_Code::OpenTutorial);
 
 
 	return true;
@@ -90,4 +91,10 @@ void UMainMenu_Code::HostServer() {
 
 	GEngine->AddOnScreenDebugMessage(1, 5.0, FColor::Green, TEXT("Hosting Server..."));
 	GetWorld()->ServerTravel("/Game/Levels/Level_1?Listen");
+}
+
+void UMainMenu_Code::OpenTutorial()
+{
+	disableMenu();
+	GetWorld()->ServerTravel("/Game/Levels/Tutorial?Listen");
 }

@@ -1,5 +1,5 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+// Private Closed Project, sharing or editing the source code is prohibited 
+//and will be faced with legal action, claiming the project is yours will end you up in jail.
 #pragma once
 
 #include "CoreMinimal.h"
@@ -36,6 +36,9 @@ public:
 	UFUNCTION()
 	void RemoveJoinMenu();
 
+	UFUNCTION()
+	void OpenTutorial();
+
 
 
 private:
@@ -51,6 +54,9 @@ private:
 
 	UPROPERTY(meta = (BindWidget))
 	UButton* JoinIPBtn;
+
+	UPROPERTY(meta = (BindWidget))
+		UButton* TutorialBtn;
 
 	UPROPERTY(meta = (BindWidget))
 	UWidget* JoinMenuFull;

@@ -1,5 +1,5 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+// Private Closed Project, sharing or editing the source code is prohibited 
+//and will be faced with legal action, claiming the project is yours will end you up in jail.
 
 #include "Grabber.h"
 
@@ -27,7 +27,7 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	//DrawDebugLine(GetWorld(), ReturnTraceLineStart(), ReturnTraceLineEnd(), FColor::Red, false, 0.0, 0, 5.0);
+	DrawDebugLine(GetWorld(), ReturnTraceLineStart(), ReturnTraceLineEnd(), FColor::Red, false, 0.0, 0, 5.0);
 
 	UpdatePhysicsObjectLocation();
 	
