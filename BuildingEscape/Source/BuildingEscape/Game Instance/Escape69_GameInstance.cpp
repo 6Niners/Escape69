@@ -5,9 +5,22 @@
 
 UEscape69_GameInstance::UEscape69_GameInstance(const FObjectInitializer& ObjectInitializer) {
 
+	ConstructorHelpers::FClassFinder<UMainMenu_Code> MainMenu_BP(TEXT("/Game/MainMenu/MainMenu_BP"));
 
+	if (MainMenu_BP.Class) {
 
+		menuClass = MainMenu_BP.Class;
+	}
 }
+
+
+
+void UEscape69_GameInstance::loadMainMenu() {
+
+	UMainMenu_Code* menuWidget = CreateWidget<UMainMenu_Code>(this, menuClass);
+	menuWidget->setupMenu(menuWidget);
+}
+
 
 
 
