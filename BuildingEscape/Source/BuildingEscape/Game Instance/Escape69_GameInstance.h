@@ -9,6 +9,9 @@
 #include "GameFramework/PlayerController.h"
 #include "UObject/ConstructorHelpers.h"
 #include "Blueprint/UserWidget.h"
+
+#include "Menus/MainMenu_Code.h"
+
 #include "Escape69_GameInstance.generated.h"
 
 /**
@@ -33,4 +36,9 @@ private:
 	UFUNCTION(Exec)
 	void JoinServer(FString IP);
 
+	UFUNCTION(BlueprintCallable) 
+	void loadMainMenu();
+
+	TSubclassOf<UUserWidget> menuClass = nullptr;
+	
 };
