@@ -31,5 +31,7 @@ public:
 
 	UBoxComponent* triggerBox = nullptr;
 
+	UPROPERTY(EditAnywhere)
+	FString levelURL;
 
 };

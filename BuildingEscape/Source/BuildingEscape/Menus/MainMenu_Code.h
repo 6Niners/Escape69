@@ -37,9 +37,10 @@ public:
 	void RemoveJoinMenu();
 
 	UFUNCTION()
-	void OpenTutorial();
+	void loadKnapSack();
 
-
+	UFUNCTION()
+	void loadSoulCave();
 
 private:
 
@@ -56,7 +57,10 @@ private:
 	UButton* JoinIPBtn;
 
 	UPROPERTY(meta = (BindWidget))
-		UButton* TutorialBtn;
+	UButton* KnapSackBtn;
+
+	UPROPERTY(meta = (BindWidget))
+	UButton* SoulCaveBtn;
 
 	UPROPERTY(meta = (BindWidget))
 	UWidget* JoinMenuFull;

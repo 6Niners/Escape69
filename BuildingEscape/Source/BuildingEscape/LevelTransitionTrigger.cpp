@@ -36,15 +36,15 @@ void ALevelTransitionTrigger::Tick(float DeltaTime)
 
 
 
- void ALevelTransitionTrigger::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult) {
+void ALevelTransitionTrigger::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult) {
+
+	APlayerController* controller = GetWorld()->GetFirstPlayerController();
+	controller->ClientTravel(levelURL, ETravelType::TRAVEL_Absolute, true);
 	
-	 APlayerController* controller = GetWorld()->GetFirstPlayerController();
-	 controller->ClientTravel("/Game/Levels/Level_2", ETravelType::TRAVEL_Absolute, true);
 }
 
 
-
- void ALevelTransitionTrigger::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex) {
+void ALevelTransitionTrigger::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex) {
 	
 
 
