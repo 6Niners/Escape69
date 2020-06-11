@@ -12,7 +12,8 @@ bool UMainMenu_Code::Initialize() {
 	JoinBtn->OnClicked.AddDynamic(this, &UMainMenu_Code::LoadJoinMenu);
 	CancelBtn->OnClicked.AddDynamic(this, &UMainMenu_Code::RemoveJoinMenu);
 	JoinIPBtn->OnClicked.AddDynamic(this, &UMainMenu_Code::JoinServer);
-	TutorialBtn->OnClicked.AddDynamic(this, &UMainMenu_Code::OpenTutorial);
+	KnapSackBtn->OnClicked.AddDynamic(this, &UMainMenu_Code::loadKnapSack);
+	SoulCaveBtn->OnClicked.AddDynamic(this, &UMainMenu_Code::loadSoulCave);
 
 
 	return true;
@@ -68,6 +69,9 @@ void UMainMenu_Code::RemoveJoinMenu() {
 
 
 
+void UMainMenu_Code::loadKnapSack() { disableMenu(); GetWorld()->ServerTravel("/Game/Levels/KnapSack"); }
+void UMainMenu_Code::loadSoulCave() { disableMenu(); GetWorld()->ServerTravel("/Game/Levels/Level_2");}
+
 void UMainMenu_Code::JoinServer() {
 
 	FString IP = (IPTextBox->Text).ToString();
@@ -93,8 +97,3 @@ void UMainMenu_Code::HostServer() {
 	GetWorld()->ServerTravel("/Game/Levels/Level_1?Listen");
 }
 
-void UMainMenu_Code::OpenTutorial()
-{
-	disableMenu();
-	GetWorld()->ServerTravel("/Game/Levels/Tutorial?Listen");
-}
