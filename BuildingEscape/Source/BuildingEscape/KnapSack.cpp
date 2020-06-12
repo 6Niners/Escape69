@@ -1,7 +1,8 @@
 // All copyrights reserved. 6Niners organization.
 
-#include "price.h"
 #include "KnapSack.h"
+
+#include "price.h"
 
 // Sets default values for this component's properties
 UKnapSack::UKnapSack()
