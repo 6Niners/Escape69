@@ -7,10 +7,13 @@ UEscape69_GameInstance::UEscape69_GameInstance(const FObjectInitializer& ObjectI
 
 	ConstructorHelpers::FClassFinder<UMainMenu_Code> MainMenu_BP(TEXT("/Game/MainMenu/MainMenu_BP"));
 	ConstructorHelpers::FClassFinder<UInGameMenu> InGameMenu_BP(TEXT("/Game/MainMenu/InGameMenu_BP"));
+	ConstructorHelpers::FClassFinder<UGameOverOverlay> GameOverOverlay_BP(TEXT("/Game/MainMenu/GameOver_BP"));
 
 
 	if (MainMenu_BP.Class) menuClass = MainMenu_BP.Class;
 	if (InGameMenu_BP.Class) inGameMenuClass = InGameMenu_BP.Class;
+	if (GameOverOverlay_BP.Class) gameOverOverlayClass = GameOverOverlay_BP.Class;
+
 }
 
 
@@ -29,6 +32,13 @@ void UEscape69_GameInstance::loadInGameMenu() {
 	inGameMenuWidget->setupInGameMenu();
 }
 
+
+
+void UEscape69_GameInstance::loadGameOverOverlay() {
+
+	UGameOverOverlay* GameOverWidget = CreateWidget<UGameOverOverlay>(this, gameOverOverlayClass);
+	GameOverWidget->setupGameOverOverlay();
+}
 
 
 

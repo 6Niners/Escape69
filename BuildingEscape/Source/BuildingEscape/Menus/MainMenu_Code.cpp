@@ -70,7 +70,7 @@ void UMainMenu_Code::RemoveJoinMenu() {
 
 
 void UMainMenu_Code::loadKnapSack() { disableMenu(); GetWorld()->ServerTravel("/Game/Levels/KnapSack"); }
-void UMainMenu_Code::loadSoulCave() { disableMenu(); GetWorld()->ServerTravel("/Game/Levels/Level_2");}
+void UMainMenu_Code::loadSoulCave() { disableMenu(); GetWorld()->ServerTravel("/Game/Levels/Level_2"); }
 
 void UMainMenu_Code::JoinServer() {
 
