@@ -11,6 +11,7 @@
 #include "Blueprint/UserWidget.h"
 
 #include "Menus/MainMenu_Code.h"
+#include "Menus/GameOverOverlay.h"
 #include "Menus/InGameMenu.h"
 
 #include "Escape69_GameInstance.generated.h"
@@ -43,7 +44,10 @@ private:
 	UFUNCTION(BlueprintCallable)
 	void loadInGameMenu();
 
+	UFUNCTION(BlueprintCallable)
+	void loadGameOverOverlay();
+
 	TSubclassOf<UUserWidget> menuClass = nullptr;
 	TSubclassOf<UUserWidget> inGameMenuClass = nullptr;
-	
+	TSubclassOf<UUserWidget> gameOverOverlayClass = nullptr;
 };
