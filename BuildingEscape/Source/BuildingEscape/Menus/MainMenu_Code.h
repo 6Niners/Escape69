@@ -42,6 +42,9 @@ public:
 	UFUNCTION()
 	void loadSoulCave();
 
+	UFUNCTION()
+	void QuitGame();
+
 private:
 
 	UPROPERTY(meta = (BindWidget))
@@ -61,6 +64,9 @@ private:
 
 	UPROPERTY(meta = (BindWidget))
 	UButton* SoulCaveBtn;
+
+	UPROPERTY(meta = (BindWidget))
+	UButton* QuitBtn;
 
 	UPROPERTY(meta = (BindWidget))
 	UWidget* JoinMenuFull;

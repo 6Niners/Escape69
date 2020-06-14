@@ -14,6 +14,7 @@ bool UMainMenu_Code::Initialize() {
 	JoinIPBtn->OnClicked.AddDynamic(this, &UMainMenu_Code::JoinServer);
 	KnapSackBtn->OnClicked.AddDynamic(this, &UMainMenu_Code::loadKnapSack);
 	SoulCaveBtn->OnClicked.AddDynamic(this, &UMainMenu_Code::loadSoulCave);
+	QuitBtn->OnClicked.AddDynamic(this, &UMainMenu_Code::QuitGame);
 
 
 	return true;
@@ -69,8 +70,18 @@ void UMainMenu_Code::RemoveJoinMenu() {
 
 
 
+void UMainMenu_Code::QuitGame() {
+
+	APlayerController* playerController = GetWorld()->GetFirstPlayerController();
+	playerController->ConsoleCommand("quit");
+
+}
+
+
+
 void UMainMenu_Code::loadKnapSack() { disableMenu(); GetWorld()->ServerTravel("/Game/Levels/KnapSack"); }
 void UMainMenu_Code::loadSoulCave() { disableMenu(); GetWorld()->ServerTravel("/Game/Levels/Level_2"); }
+
 
 void UMainMenu_Code::JoinServer() {
 
